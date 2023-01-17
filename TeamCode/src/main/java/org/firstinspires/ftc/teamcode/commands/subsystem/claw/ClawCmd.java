@@ -1,8 +1,7 @@
-package org.firstinspires.ftc.teamcode.commands.subsystem;
+package org.firstinspires.ftc.teamcode.commands.subsystem.claw;
 
 import com.asiankoala.koawalib.command.commands.InstantCmd;
 
-import org.firstinspires.ftc.teamcode.Constants;
 import org.firstinspires.ftc.teamcode.subsystems.Intake;
 
 public class ClawCmd extends InstantCmd {

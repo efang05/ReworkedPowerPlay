@@ -1,12 +1,8 @@
-package org.firstinspires.ftc.teamcode.commands.subsystem;
-
-import com.asiankoala.koawalib.command.commands.InstantCmd;
+package org.firstinspires.ftc.teamcode.commands.subsystem.lift;
 
 import org.firstinspires.ftc.teamcode.Constants;
 import org.firstinspires.ftc.teamcode.State;
 import org.firstinspires.ftc.teamcode.subsystems.Lift;
-
-class LiftCmd extends InstantCmd { LiftCmd(Lift lift, double position) { super(() -> { lift.setTarget(position); return null; }); }}
 
 public class LiftCmds {
     public static LiftCmd getLiftCmd(State state, Lift lift) {

@@ -1,8 +1,8 @@
-package org.firstinspires.ftc.teamcode.commands.subsystem;
-
-import com.asiankoala.koawalib.command.commands.InstantCmd;
+package org.firstinspires.ftc.teamcode.commands.subsystem.turret;
 
 import org.firstinspires.ftc.teamcode.Constants;
 import org.firstinspires.ftc.teamcode.subsystems.Turret;
 
-public class TurretBackCmd extends TurretCmd { TurretBackCmd(Turret turret) { super(turret, Constants.back); } }
+public class TurretBackCmd extends TurretCmd {
+    public TurretBackCmd(Turret turret) { super(turret, Constants.back); }
+}

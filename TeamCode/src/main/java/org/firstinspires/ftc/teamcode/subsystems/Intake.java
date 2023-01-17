@@ -21,13 +21,17 @@ public class Intake extends KSubsystem {
             .reverse()
             .startAt(Constants.liftedArm);
 
-    private final KCRServo intakeServo1 = new KCRServo("intake1");
-    private final KCRServo intakeServo2 = new KCRServo("intake2").reverse();
+    /**
+     * TODO: Intake Servos
+     **/
 
-    public void setIntake(double power) {
-        intakeServo1.setPower(power);
-        intakeServo2.setPower(power);
-    }
+//    private final KCRServo intakeServo1 = new KCRServo("intake1");
+//    private final KCRServo intakeServo2 = new KCRServo("intake2").reverse();
+//
+//    public void setIntake(double power) {
+//        intakeServo1.setPower(power);
+//        intakeServo2.setPower(power);
+//    }
 
     public void setClaw(double position) {
         clawServo1.setPosition(position);

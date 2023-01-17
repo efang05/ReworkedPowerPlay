@@ -2,6 +2,7 @@ package org.firstinspires.ftc.teamcode.subsystems;
 
 import com.asiankoala.koawalib.control.controller.PIDGains;
 import com.asiankoala.koawalib.control.motor.FFGains;
+import com.asiankoala.koawalib.control.profile.MotionConstraints;
 import com.asiankoala.koawalib.hardware.motor.EncoderFactory;
 import com.asiankoala.koawalib.hardware.motor.KMotor;
 import com.asiankoala.koawalib.hardware.motor.MotorFactory;
@@ -24,13 +25,14 @@ public class Lift extends KSubsystem {
                             .getReverse()
                             .zero()
             )
-            .withPositionControl(
+            .withMotionProfileControl(
                     new PIDGains(
                             0.022,
                             0.0,
                             0.0003
                     ),
                     new FFGains(0.0, 0.0, 0.0, 0.16, 0.0),
+                    new MotionConstraints(1600, 800, 0),
                     10.0
             )
             .build();

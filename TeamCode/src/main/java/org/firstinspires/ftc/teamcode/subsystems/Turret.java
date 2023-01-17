@@ -2,6 +2,7 @@ package org.firstinspires.ftc.teamcode.subsystems;
 
 import com.asiankoala.koawalib.control.controller.PIDGains;
 import com.asiankoala.koawalib.control.motor.FFGains;
+import com.asiankoala.koawalib.control.profile.MotionConstraints;
 import com.asiankoala.koawalib.hardware.motor.EncoderFactory;
 import com.asiankoala.koawalib.hardware.motor.KMotor;
 import com.asiankoala.koawalib.hardware.motor.MotorFactory;
@@ -11,16 +12,17 @@ public class Turret extends KSubsystem {
     private final KMotor tmotor = new MotorFactory("tmotor")
             .getBrake()
             .createEncoder(
-                    new EncoderFactory(1.0)
+                    new EncoderFactory( 1.0)
                             .zero()
             )
-            .withPositionControl(
+            .withMotionProfileControl(
                     new PIDGains(
                             0.012,
                             0.0,
                             0.000002
                     ),
                     new FFGains(),
+                    new MotionConstraints(30, 10, 0),
                     10.0
             )
             .build();

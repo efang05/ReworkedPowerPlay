@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.commands.subsystem;
+package org.firstinspires.ftc.teamcode.commands.subsystem.arm;
 
 import com.asiankoala.koawalib.command.commands.InstantCmd;
 
