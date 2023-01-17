@@ -4,9 +4,11 @@ import com.asiankoala.koawalib.hardware.motor.KMotor;
 import com.asiankoala.koawalib.hardware.motor.MotorFactory;
 import com.asiankoala.koawalib.subsystem.drive.KMecanumDrive;
 
-import org.firstinspires.ftc.teamcode.subsystems.Intake;
-import org.firstinspires.ftc.teamcode.subsystems.Lift;
+import org.firstinspires.ftc.teamcode.subsystems.Claw;
 import org.firstinspires.ftc.teamcode.subsystems.Turret;
+import org.firstinspires.ftc.teamcode.subsystems.Lift;
+import org.firstinspires.ftc.teamcode.subsystems.Arm;
+import org.firstinspires.ftc.teamcode.subsystems.Horizontal;
 
 public class Almond {
     private final KMotor lf = new MotorFactory("leftFront")
@@ -30,6 +32,10 @@ public class Almond {
     public KMecanumDrive drive = new KMecanumDrive(lf, lr, rr, rf);
 
     public Lift lift = new Lift();
-    public Intake intake = new Intake();
+    public Claw claw = new Claw();
     public Turret turret = new Turret();
+    public Horizontal horizontal = new Horizontal();
+    public Arm arm = new Arm();
+
+    public boolean isIntaking = false;
 }

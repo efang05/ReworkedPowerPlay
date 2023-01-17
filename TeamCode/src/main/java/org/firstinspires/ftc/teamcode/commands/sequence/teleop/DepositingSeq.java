@@ -15,9 +15,9 @@ import org.firstinspires.ftc.teamcode.commands.subsystem.lift.LiftCmd;
 public class DepositingSeq extends SequentialGroup {
     public DepositingSeq(Almond almond, KGamepad driver1, KGamepad driver2) {
         super(
-                new ClawFullyOpenCmd(almond.intake),
+                new ClawFullyOpenCmd(almond.claw),
                 new IdleSeq(almond).waitUntil(driver1.getRightBumper()),
-                new IntakingSeq(almond, driver1, driver2)
+                new ReadyIntakeSeq(almond, driver1, driver2)
         );
     }
 }

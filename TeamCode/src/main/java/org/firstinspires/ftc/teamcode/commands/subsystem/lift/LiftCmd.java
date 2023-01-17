@@ -9,6 +9,6 @@ public class LiftCmd extends InstantCmd {
         super(() -> {
             lift.setTarget(position);
             return null;
-        });
+        }, lift);
     }
 }

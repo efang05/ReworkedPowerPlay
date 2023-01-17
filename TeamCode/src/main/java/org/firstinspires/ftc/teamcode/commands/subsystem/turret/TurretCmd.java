@@ -9,6 +9,6 @@ public class TurretCmd extends InstantCmd {
         super(() -> {
             turret.setTarget(position);
             return null;
-        });
+        }, turret);
     }
 }

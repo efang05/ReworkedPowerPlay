@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode.commands.sequence.teleop;
 
+import com.asiankoala.koawalib.command.commands.WaitCmd;
 import com.asiankoala.koawalib.command.group.SequentialGroup;
 
 import org.firstinspires.ftc.teamcode.Almond;
@@ -16,10 +17,11 @@ import org.firstinspires.ftc.teamcode.commands.subsystem.lift.LiftCmd;
 public class ReadyDepositSeq extends SequentialGroup {
     public ReadyDepositSeq(Almond almond) {
         super(
-                new ClawCloseCmd(almond.intake),
-                new HorizontalIdleCmd(almond.lift),
+                new ClawCloseCmd(almond.claw),
+                new WaitCmd(0.5),
                 new LiftCmd(almond.lift, Constants.idle),
-                new ArmLiftCmd(almond.intake)
+                new HorizontalIdleCmd(almond.horizontal),
+                new ArmLiftCmd(almond.arm)
         );
     }
 }

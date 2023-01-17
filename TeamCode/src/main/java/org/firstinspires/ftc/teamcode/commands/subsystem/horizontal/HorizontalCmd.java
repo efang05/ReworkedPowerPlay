@@ -2,13 +2,13 @@ package org.firstinspires.ftc.teamcode.commands.subsystem.horizontal;
 
 import com.asiankoala.koawalib.command.commands.InstantCmd;
 
-import org.firstinspires.ftc.teamcode.subsystems.Lift;
+import org.firstinspires.ftc.teamcode.subsystems.Horizontal;
 
 public class HorizontalCmd extends InstantCmd {
-    public HorizontalCmd(Lift lift, double position) {
+    public HorizontalCmd(Horizontal horizontal, double position) {
         super(() -> {
-            lift.setHorizontalTarget(position);
+            horizontal.setHorizontalTarget(position);
             return null;
-        });
+        }, horizontal);
     }
 }

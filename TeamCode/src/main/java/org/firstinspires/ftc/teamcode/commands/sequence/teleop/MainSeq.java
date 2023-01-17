@@ -15,19 +15,15 @@ import org.firstinspires.ftc.teamcode.commands.subsystem.claw.ClawFullyOpenCmd;
 import org.firstinspires.ftc.teamcode.commands.subsystem.horizontal.HorizontalBackCmd;
 import org.firstinspires.ftc.teamcode.commands.subsystem.lift.LiftCmd;
 
-public class IntakingSeq extends SequentialGroup {
-    public IntakingSeq(Almond almond, KGamepad driver1, KGamepad driver2) {
+public class MainSeq extends SequentialGroup {
+    public MainSeq(Almond almond, KGamepad driver1, KGamepad driver2) {
         super(
                 new InstantCmd(() -> {Logger.logInfo("scheduled intake sequence"); return null; }),
-                new RaceGroup(
-                        new SequentialGroup(
-                                new ReadyDepositSeq(almond),
-                                new WaitUntilCmd(driver1.getRightBumper())
-                                ),
-                        new SequentialGroup(
-                                new WaitUntilCmd(driver1.getLeftBumper()),
-                                new ReadyIntakeSeq(almond)
-                        )
+                new SequentialGroup(
+                        new InstantCmd(() -> {almond.isIntaking = false; return null; }),
+                        new ReadyDepositSeq(almond),
+                        new WaitUntilCmd(driver1.getRightBumper()),
+                        new DepositingSeq(almond, driver1, driver2)
                 )
         );
     }

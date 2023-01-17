@@ -2,10 +2,15 @@ package org.firstinspires.ftc.teamcode.commands.subsystem.claw;
 
 import com.asiankoala.koawalib.command.commands.InstantCmd;
 
-import org.firstinspires.ftc.teamcode.subsystems.Intake;
+import org.firstinspires.ftc.teamcode.subsystems.Claw;
 
 public class ClawCmd extends InstantCmd {
-    public ClawCmd(Intake intake, double position) { super(() -> { intake.setClaw(position); return null; }); }
+    public ClawCmd(Claw claw, double position) {
+        super(() -> {
+            claw.setClaw(position);
+            return null;
+            }, claw);
+    }
 }
 
 /**

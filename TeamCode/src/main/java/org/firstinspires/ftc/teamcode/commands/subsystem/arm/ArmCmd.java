@@ -2,13 +2,13 @@ package org.firstinspires.ftc.teamcode.commands.subsystem.arm;
 
 import com.asiankoala.koawalib.command.commands.InstantCmd;
 
-import org.firstinspires.ftc.teamcode.subsystems.Intake;
+import org.firstinspires.ftc.teamcode.subsystems.Arm;
 
 public class ArmCmd extends InstantCmd {
-    public ArmCmd(Intake intake, double position) {
+    public ArmCmd(Arm arm, double position) {
         super(() -> {
-            intake.setArm(position);
+            arm.setArm(position);
             return null;
-        });
+        }, arm);
     }
 }

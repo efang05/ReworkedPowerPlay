@@ -37,21 +37,8 @@ public class Lift extends KSubsystem {
             )
             .build();
 
-
-    private final KServo horizontal1 = new KServo("horizontal1")
-            .startAt(Constants.horizontalback);
-
-    private final KServo horizontal2 = new KServo("horizontal2")
-            .reverse()
-            .startAt(Constants.horizontalback);
-
     public void setTarget(double target) {
         lift2.setPositionTarget(target);
-    }
-
-    public void setHorizontalTarget(double target) {
-        horizontal1.setPosition(target);
-        horizontal2.setPosition(target);
     }
 
     @Override

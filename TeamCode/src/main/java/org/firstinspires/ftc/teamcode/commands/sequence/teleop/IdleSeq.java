@@ -18,10 +18,10 @@ public class IdleSeq extends ParallelGroup {
     public IdleSeq(Almond almond) {
         super(
                 new TurretFrontCmd(almond.turret),
-                new ArmLiftCmd(almond.intake),
+                new ArmLiftCmd(almond.arm),
                 new LiftCmd(almond.lift, Constants.idle),
-                new HorizontalIdleCmd(almond.lift),
-                new ClawCloseCmd(almond.intake)
+                new HorizontalIdleCmd(almond.horizontal),
+                new ClawCloseCmd(almond.claw)
         );
     }
 }
