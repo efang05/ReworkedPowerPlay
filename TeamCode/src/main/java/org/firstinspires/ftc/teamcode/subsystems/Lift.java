@@ -10,10 +10,11 @@ import com.asiankoala.koawalib.hardware.servo.KServo;
 import com.asiankoala.koawalib.subsystem.KSubsystem;
 
 import org.firstinspires.ftc.teamcode.Constants;
+import org.firstinspires.ftc.teamcode.opmodes.PIDConfig;
 
 public class Lift extends KSubsystem {
     private final KMotor lift1 = new MotorFactory("lift1")
-            .getBrake()
+            .getFloat()
             .getReverse()
             .build();
 
@@ -21,21 +22,20 @@ public class Lift extends KSubsystem {
      * TODO: Ticks per unit redo PID lol funny!!!!!
      */
     private final KMotor lift2 = new MotorFactory("lift2")
-            .getBrake()
+            .getFloat()
             .getReverse()
             .createEncoder(
                     new EncoderFactory(1.0)
                             .getReverse()
                             .zero()
             )
-            .withMotionProfileControl(
+            .withPositionControl(
                     new PIDGains(
-                            0.022,
-                            0.0,
-                            0.0003
+                            PIDConfig.kP,
+                            PIDConfig.kI,
+                            PIDConfig.kD
                     ),
                     new FFGains(0.0, 0.0, 0.0, 0.16, 0.0),
-                    new MotionConstraints(1600, 800, 0),
                     10.0
             )
             .build();
@@ -45,6 +45,9 @@ public class Lift extends KSubsystem {
     }
 
     public double getCurrentHeight() { return lift2.getPos(); }
+
+    public double getTargetPosition() { return lift2.getSetpoint().getX()g; }
+
 
     @Override
     public void periodic() {

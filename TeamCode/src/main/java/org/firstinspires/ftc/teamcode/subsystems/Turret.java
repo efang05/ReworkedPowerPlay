@@ -24,9 +24,9 @@ public class Turret extends KSubsystem {
             )
             .withMotionProfileControl(
                     new PIDGains(
-                            PIDConfig.kP,
-                            PIDConfig.kI,
-                            PIDConfig.kD
+//                            PIDConfig.kP,
+//                            PIDConfig.kI,
+//                            PIDConfig.kD
                             ),
                     new FFGains(),
                     new MotionConstraints(30, 10, 0),

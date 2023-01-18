@@ -12,6 +12,7 @@ public class DriveCmd extends Cmd {
     private KGamepad driver;
 
     public DriveCmd(KMecanumDrive drive, KGamepad driver) {
+        addRequirements(drive);
         this.drive = drive;
         this.driver = driver;
     }
@@ -27,10 +28,14 @@ public class DriveCmd extends Cmd {
 
         Pose drivePowers = new Pose(
                 driver.getLeftStick().getXAxis() * xScalar,
-                driver.getLeftStick().getYAxis() * yScalar,
-                driver.getRightStick().getXAxis() * rScalar
+                driver.getLeftStick().getYInverted().getYAxis() * yScalar,
+                driver.getRightStick().getXInverted().getXAxis() * rScalar
         );
-
         drive.setPowers(drivePowers);
+    }
+
+    @Override
+    public boolean isFinished() {
+        return false;
     }
 }

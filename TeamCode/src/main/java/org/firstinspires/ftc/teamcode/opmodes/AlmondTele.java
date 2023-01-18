@@ -36,11 +36,12 @@ public class AlmondTele extends KOpMode {
         driver2 = getGunner();
         Logger.setConfig(LoggerConfig.Companion.getDASHBOARD_CONFIG());
         almond = new Almond();
-        KScheduler.schedule(new ReadyIntakeSeq(almond, driver1, driver2, almond.DS));
-        scheduleCycling();
+        //KScheduler.schedule(new ReadyIntakeSeq(almond, driver1, driver2, almond.DS));
         scheduleDrive();
-        schedulePresets();
-        scheduleManualControl();
+
+//        scheduleCycling();
+//        schedulePresets();
+//        scheduleManualControl();
     }
 
     @Override
