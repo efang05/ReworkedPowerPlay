@@ -2,32 +2,29 @@ package org.firstinspires.ftc.teamcode.opmodes;
 
 import com.asiankoala.koawalib.command.KOpMode;
 import com.asiankoala.koawalib.command.KScheduler;
-import com.asiankoala.koawalib.command.commands.InstantCmd;
 import com.asiankoala.koawalib.command.commands.LoopCmd;
-import com.asiankoala.koawalib.command.commands.MecanumCmd;
 import com.asiankoala.koawalib.command.commands.WatchdogCmd;
-import com.asiankoala.koawalib.control.filter.SlewRateLimiter;
 import com.asiankoala.koawalib.gamepad.KGamepad;
-import com.asiankoala.koawalib.hardware.sensor.KDistanceSensor;
 import com.asiankoala.koawalib.logger.Logger;
 import com.asiankoala.koawalib.logger.LoggerConfig;
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.hardware.Gamepad;
 
 import org.firstinspires.ftc.teamcode.Almond;
-import org.firstinspires.ftc.teamcode.Constants;
 import org.firstinspires.ftc.teamcode.commands.sequence.teleop.MainSeq;
 import org.firstinspires.ftc.teamcode.commands.sequence.teleop.ReadyIntakeSeq;
 import org.firstinspires.ftc.teamcode.commands.subsystem.drive.DriveCmd;
-import org.firstinspires.ftc.teamcode.commands.subsystem.lift.LiftCmd;
 import org.firstinspires.ftc.teamcode.commands.subsystem.lift.LiftManualCmd;
 import org.firstinspires.ftc.teamcode.commands.subsystem.lift.LiftPresetCmd;
 import org.firstinspires.ftc.teamcode.commands.subsystem.turret.TurretManualCmd;
 import org.firstinspires.ftc.teamcode.commands.subsystem.turret.TurretPresetCmd;
-import org.firstinspires.ftc.teamcode.subsystems.Lift;
 
+@TeleOp
 public class AlmondTele extends KOpMode {
+
     private Almond almond;
-    private KGamepad driver1 = getDriver();
-    private KGamepad driver2 = getGunner();
+    private KGamepad driver1;
+    private KGamepad driver2;
 
     public AlmondTele() {
         super(true, 8);
@@ -35,6 +32,8 @@ public class AlmondTele extends KOpMode {
 
     @Override
     public void mInit() {
+        driver1 = getDriver();
+        driver2 = getGunner();
         Logger.setConfig(LoggerConfig.Companion.getDASHBOARD_CONFIG());
         almond = new Almond();
         KScheduler.schedule(new ReadyIntakeSeq(almond, driver1, driver2, almond.DS));
@@ -75,7 +74,7 @@ public class AlmondTele extends KOpMode {
                             new LiftPresetCmd(almond, almond.lift, driver2)
                     );
                     KScheduler.schedule(
-                            new TurretPresetCmd(almond, almond.turret, driver2)
+                            new TurretPresetCmd(almond,     almond.turret, driver2)
                     );
                     return null;
                 })

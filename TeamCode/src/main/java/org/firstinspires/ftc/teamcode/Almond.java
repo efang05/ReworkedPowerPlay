@@ -32,7 +32,7 @@ public class Almond {
 
     public KMecanumDrive drive = new KMecanumDrive(lf, lr, rr, rf);
 
-    public KDistanceSensor DS = new KDistanceSensor("distance");
+    public KDistanceSensor DS = new KDistanceSensor("distanceSensor");
 
     public Lift lift = new Lift();
     public Claw claw = new Claw();

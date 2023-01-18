@@ -16,7 +16,7 @@ public class Turret extends KSubsystem {
      * TODO: Ticks per unit redo PID lol funny!!!!!
      */
 
-    private final KMotor tmotor = new MotorFactory("tmotor")
+    private final KMotor tmotor = new MotorFactory("turret")
             .getBrake()
             .createEncoder(
                     new EncoderFactory( 1.0)
