@@ -46,7 +46,7 @@ public class Lift extends KSubsystem {
 
     public double getCurrentHeight() { return lift2.getPos(); }
 
-    public double getTargetPosition() { return lift2.getSetpoint().getX()g; }
+    public double getTargetPosition() { return lift2.getSetpoint().getX(); }
 
 
     @Override
