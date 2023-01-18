@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode.commands.sequence.teleop;
 
+import com.asiankoala.koawalib.command.commands.InstantCmd;
 import com.asiankoala.koawalib.command.commands.WaitUntilCmd;
 import com.asiankoala.koawalib.command.group.ParallelGroup;
 import com.asiankoala.koawalib.command.group.SequentialGroup;
@@ -21,7 +22,8 @@ public class IdleSeq extends ParallelGroup {
                 new ArmLiftCmd(almond.arm),
                 new LiftCmd(almond.lift, Constants.idle),
                 new HorizontalIdleCmd(almond.horizontal),
-                new ClawCloseCmd(almond.claw)
+                new ClawCloseCmd(almond.claw),
+                new InstantCmd(() -> {almond.isReady = true; return null; })
         );
     }
 }

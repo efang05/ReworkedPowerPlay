@@ -46,7 +46,7 @@ public class AlmondTele extends KOpMode {
 
     @Override
     public void mLoop() {
-        Logger.addTelemetryData("state", "lol");
+        Logger.addTelemetryData("state", almond.state);
     }
 
     private void scheduleDrive() {

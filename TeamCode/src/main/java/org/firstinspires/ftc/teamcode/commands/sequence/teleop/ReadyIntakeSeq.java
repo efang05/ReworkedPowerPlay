@@ -19,7 +19,8 @@ import org.firstinspires.ftc.teamcode.commands.subsystem.lift.LiftCmd;
 public class ReadyIntakeSeq extends SequentialGroup {
     public ReadyIntakeSeq(Almond almond, KGamepad driver1, KGamepad driver2, KDistanceSensor DS) {
         super(
-                new InstantCmd(() -> {almond.isIntaking = true; return null; }),
+                new InstantCmd(() -> {Logger.logInfo("scheduled intaking sequence"); return null; }),
+                new InstantCmd(() -> {almond.isIntaking = true; almond.isReady = false; almond.state = Almond.State.INTAKING; return null; }),
                 new ArmDropCmd(almond.arm),
                 new LiftCmd(almond.lift, Constants.intaking),
                 new HorizontalBackCmd(almond.horizontal),

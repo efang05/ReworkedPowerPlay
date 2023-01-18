@@ -41,4 +41,15 @@ public class Almond {
     public Arm arm = new Arm();
 
     public boolean isIntaking = false;
+    public boolean isReady = false;
+
+    public enum State {
+        INTAKING,
+        GRABBED,
+        IDLE,
+        READY,
+        DEPOSITING
+    }
+
+    public State state = State.INTAKING;
 }

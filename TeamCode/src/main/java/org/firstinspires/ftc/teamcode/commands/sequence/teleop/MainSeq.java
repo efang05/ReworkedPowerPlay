@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode.commands.sequence.teleop;
 
 import com.asiankoala.koawalib.command.commands.InstantCmd;
+import com.asiankoala.koawalib.command.commands.WaitCmd;
 import com.asiankoala.koawalib.command.commands.WaitUntilCmd;
 import com.asiankoala.koawalib.command.group.RaceGroup;
 import com.asiankoala.koawalib.command.group.SequentialGroup;
@@ -19,7 +20,7 @@ import org.firstinspires.ftc.teamcode.commands.subsystem.lift.LiftCmd;
 public class MainSeq extends SequentialGroup {
     public MainSeq(Almond almond, KGamepad driver1, KGamepad driver2, KDistanceSensor DS) {
         super(
-                new InstantCmd(() -> {Logger.logInfo("scheduled intake sequence"); return null; }),
+                new InstantCmd(() -> {Logger.logInfo("scheduled main sequence"); return null; }),
                 new SequentialGroup(
                         new InstantCmd(() -> {almond.isIntaking = false; return null; }),
                         new ReadyDepositSeq(almond),
