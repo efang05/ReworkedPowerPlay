@@ -9,6 +9,11 @@ import com.asiankoala.koawalib.hardware.motor.MotorFactory;
 import com.asiankoala.koawalib.subsystem.KSubsystem;
 
 public class Turret extends KSubsystem {
+
+    /**
+     * TODO: Ticks per unit redo PID lol funny!!!!!
+     */
+
     private final KMotor tmotor = new MotorFactory("tmotor")
             .getBrake()
             .createEncoder(

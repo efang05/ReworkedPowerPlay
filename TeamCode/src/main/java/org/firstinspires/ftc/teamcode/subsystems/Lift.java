@@ -17,6 +17,9 @@ public class Lift extends KSubsystem {
             .getReverse()
             .build();
 
+    /**
+     * TODO: Ticks per unit redo PID lol funny!!!!!
+     */
     private final KMotor lift2 = new MotorFactory("lift2")
             .getBrake()
             .getReverse()

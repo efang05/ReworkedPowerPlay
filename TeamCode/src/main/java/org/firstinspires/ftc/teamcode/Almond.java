@@ -2,6 +2,7 @@ package org.firstinspires.ftc.teamcode;
 
 import com.asiankoala.koawalib.hardware.motor.KMotor;
 import com.asiankoala.koawalib.hardware.motor.MotorFactory;
+import com.asiankoala.koawalib.hardware.sensor.KDistanceSensor;
 import com.asiankoala.koawalib.subsystem.drive.KMecanumDrive;
 
 import org.firstinspires.ftc.teamcode.subsystems.Claw;
@@ -30,6 +31,8 @@ public class Almond {
             .build();
 
     public KMecanumDrive drive = new KMecanumDrive(lf, lr, rr, rf);
+
+    public KDistanceSensor DS = new KDistanceSensor("distance");
 
     public Lift lift = new Lift();
     public Claw claw = new Claw();
