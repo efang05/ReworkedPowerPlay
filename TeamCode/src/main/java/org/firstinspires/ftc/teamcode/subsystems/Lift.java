@@ -41,6 +41,8 @@ public class Lift extends KSubsystem {
         lift2.setPositionTarget(target);
     }
 
+    public double getCurrentHeight() { return lift2.getPos(); }
+
     @Override
     public void periodic() {
         lift1.setPower(lift2.getPower());

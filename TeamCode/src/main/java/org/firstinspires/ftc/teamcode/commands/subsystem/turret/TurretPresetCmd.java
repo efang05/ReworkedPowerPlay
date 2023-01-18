@@ -1,38 +1,38 @@
-package org.firstinspires.ftc.teamcode.commands.subsystem.lift;
+package org.firstinspires.ftc.teamcode.commands.subsystem.turret;
 
 import com.asiankoala.koawalib.command.commands.InstantCmd;
 import com.asiankoala.koawalib.gamepad.KGamepad;
 
 import org.firstinspires.ftc.teamcode.Constants;
-import org.firstinspires.ftc.teamcode.subsystems.Lift;
+import org.firstinspires.ftc.teamcode.subsystems.Turret;
 
-public class LiftPresetCmd extends InstantCmd {
-    public LiftPresetCmd(Lift lift, KGamepad driver) {
+public class TurretPresetCmd extends InstantCmd {
+    public TurretPresetCmd(Turret turret, KGamepad driver) {
         super(() -> {
-            driver.getDpadLeft().onPress(
+            driver.getY().onPress(
                     new InstantCmd(() -> {
-                        lift.setTarget(Constants.low);
+                        turret.setTarget(Constants.front);
                         return null;
                     })
             );
 
-            driver.getDpadUp().onPress(
+            driver.getX().onPress(
                     new InstantCmd(() -> {
-                        lift.setTarget(Constants.up);
+                        turret.setTarget(Constants.left);
                         return null;
                     })
             );
 
-            driver.getDpadRight().onPress(
+            driver.getB().onPress(
                     new InstantCmd(() -> {
-                        lift.setTarget(Constants.mid);
+                        turret.setTarget(Constants.right);
                         return null;
                     })
             );
 
-            driver.getDpadDown().onPress(
+            driver.getA().onPress(
                     new InstantCmd(() -> {
-                        lift.setTarget(Constants.ground);
+                        turret.setTarget(Constants.back);
                         return null;
                     })
             );

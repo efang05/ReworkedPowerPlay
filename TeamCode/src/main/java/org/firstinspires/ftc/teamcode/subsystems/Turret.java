@@ -30,4 +30,7 @@ public class Turret extends KSubsystem {
     public void setTarget(double position) {
         tmotor.setPositionTarget(position);
     }
+
+    public double getCurrentRotation() { return tmotor.getPos(); }
+
 }
