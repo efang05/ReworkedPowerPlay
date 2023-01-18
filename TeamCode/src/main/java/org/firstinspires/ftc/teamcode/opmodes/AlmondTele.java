@@ -72,10 +72,10 @@ public class AlmondTele extends KOpMode {
         KScheduler.schedule(
                 new LoopCmd(() -> {
                     KScheduler.schedule(
-                            new LiftPresetCmd(almond.lift, driver2)
+                            new LiftPresetCmd(almond, almond.lift, driver2)
                     );
                     KScheduler.schedule(
-                            new TurretPresetCmd(almond.turret, driver2)
+                            new TurretPresetCmd(almond, almond.turret, driver2)
                     );
                     return null;
                 })
@@ -86,10 +86,10 @@ public class AlmondTele extends KOpMode {
         KScheduler.schedule(
                 new LoopCmd(() -> {
                     KScheduler.schedule(
-                            new LiftManualCmd(almond.lift, driver2)
+                            new LiftManualCmd(almond, almond.lift, driver2)
                     );
                     KScheduler.schedule(
-                            new TurretManualCmd(almond.turret, driver2)
+                            new TurretManualCmd(almond, almond.turret, driver2)
                     );
                     return null;
                 })
