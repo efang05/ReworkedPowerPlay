@@ -19,27 +19,30 @@ public class Turret extends KSubsystem {
     private final KMotor tmotor = new MotorFactory("turret")
             .getBrake()
             .createEncoder(
-                    new EncoderFactory( 1.0)
+                    new EncoderFactory( 3.666666666666667)
                             .zero()
             )
             .withMotionProfileControl(
                     new PIDGains(
-//                            PIDConfig.kP,
-//                            PIDConfig.kI,
-//                            PIDConfig.kD
+                            0.2,
+                            0,
+                            0.0015
                             ),
                     new FFGains(),
-                    new MotionConstraints(30, 10, 0),
-                    10.0
-            )
+                    new MotionConstraints(PIDConfig.vel, PIDConfig.accel, PIDConfig.deccel),
+                    2.5)
             .build();
 
     public void setTarget(double position) {
         tmotor.setPositionTarget(position);
     }
 
-    public double getTargetPosition() { return tmotor.getSetpoint().getX(); }
+    public double getTargetPosition() { return tmotor.getTargetState().getX(); }
 
     public double getCurrentRotation() { return tmotor.getPos(); }
+
+    public double getTargetVel() { return tmotor.getTargetState().getV(); }
+
+    public double getCurrentVelocity() { return tmotor.getVel(); }
 
 }

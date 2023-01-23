@@ -13,7 +13,7 @@ import org.firstinspires.ftc.teamcode.Constants;
 import org.firstinspires.ftc.teamcode.opmodes.PIDConfig;
 
 public class Lift extends KSubsystem {
-    private final KMotor lift1 = new MotorFactory("lift1")
+    public final KMotor lift1 = new MotorFactory("lift1")
             .getFloat()
             .getReverse()
             .build();
@@ -21,22 +21,20 @@ public class Lift extends KSubsystem {
     /**
      * TODO: Ticks per unit redo PID lol funny!!!!!
      */
-    private final KMotor lift2 = new MotorFactory("lift2")
+    public final KMotor lift2 = new MotorFactory("lift2")
             .getFloat()
-            .getReverse()
-            .createEncoder(
-                    new EncoderFactory(1.0)
+            .pairEncoder(lift1,
+                    new EncoderFactory(38.0)
                             .getReverse()
                             .zero()
             )
             .withPositionControl(
                     new PIDGains(
-                            PIDConfig.kP,
-                            PIDConfig.kI,
-                            PIDConfig.kD
-                    ),
-                    new FFGains(0.0, 0.0, 0.0, 0.16, 0.0),
-                    10.0
+                            0.6,
+                            0.0,
+                            0.0025),
+                    new FFGains(0.0, 0.0, 0.0, 0.2, 0.0),
+                    0.2
             )
             .build();
 
@@ -46,8 +44,7 @@ public class Lift extends KSubsystem {
 
     public double getCurrentHeight() { return lift2.getPos(); }
 
-    public double getTargetPosition() { return lift2.getSetpoint().getX(); }
-
+    public double getTargetPosition() { return lift2.getTargetState().getX(); }
 
     @Override
     public void periodic() {

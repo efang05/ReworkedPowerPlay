@@ -8,7 +8,6 @@ import com.asiankoala.koawalib.gamepad.KGamepad;
 import com.asiankoala.koawalib.logger.Logger;
 import com.asiankoala.koawalib.logger.LoggerConfig;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-import com.qualcomm.robotcore.hardware.Gamepad;
 
 import org.firstinspires.ftc.teamcode.Almond;
 import org.firstinspires.ftc.teamcode.commands.sequence.teleop.MainSeq;
@@ -20,13 +19,13 @@ import org.firstinspires.ftc.teamcode.commands.subsystem.turret.TurretManualCmd;
 import org.firstinspires.ftc.teamcode.commands.subsystem.turret.TurretPresetCmd;
 
 @TeleOp
-public class AlmondTele extends KOpMode {
+public class AlmondTele2 extends KOpMode {
 
     private Almond almond;
     private KGamepad driver1;
     private KGamepad driver2;
 
-    public AlmondTele() {
+    public AlmondTele2() {
         super(true, 8);
     }
 
@@ -38,7 +37,6 @@ public class AlmondTele extends KOpMode {
         almond = new Almond();
         //KScheduler.schedule(new ReadyIntakeSeq(almond, driver1, driver2, almond.DS));
         scheduleDrive();
-        //configureControls();
 
 //        scheduleCycling();
 //        schedulePresets();
@@ -76,7 +74,7 @@ public class AlmondTele extends KOpMode {
                             new LiftPresetCmd(almond, almond.lift, driver2)
                     );
                     KScheduler.schedule(
-                            new TurretPresetCmd(almond, almond.turret, driver2)
+                            new TurretPresetCmd(almond,     almond.turret, driver2)
                     );
                     return null;
                 })
